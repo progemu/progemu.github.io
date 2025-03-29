@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ProgEmu generates counterfactual medical image with textual interpretation.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProgEmu: Towards Interpretable Counterfactual Generation via Multimodal Autoregression</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ProgEmu: Towards Interpretable Counterfactual Generation via Multimodal Autoregression</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=rUhyCvMAAAAJ">Chenglong Ma</a><sup>1,2&dagger;</sup>,</span>
+            <span class="author-block">
+              <a href="https://jiyuanfeng.github.io">Yuanfeng Ji</a><sup>3&dagger;</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=UFBrJOAAAAAJ">Jin Ye</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a>Lu Zhang</a><sup>5</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://cying18.github.io/">Ying Chen</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a>Tianbin Li</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=ag0m3aoAAAAJ">Mingjie Li</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=Z4LgebkAAAAJ">Junjun He</a><sup>2,4,*</sup>
+            </span>
+            <span class="author-block">
+              <a href="https://hmshan.io">Hongming Shan</a><sup>1*</sup>
+            </span>
+          </div>
+          
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Fudan University,</span>
+            <span class="author-block"><sup>2</sup>Shanghai Innovation Institute,</span>
+            <span class="author-block"><sup>3</sup>Stanford University,</span>
+            <span class="author-block"><sup>4</sup>Shanghai AI Laboratory,</span>
+            <span class="author-block"><sup>5</sup>Jinan University,</span>
+          </div>
+
+          <div class="is-size-3 publication-authors">
+            <span class="author-block"><sup>&dagger;</sup>Equal Contribution,</span>
+            <span class="author-block"><sup>*</sup>Corresponding Authors</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data (open soon)</span>
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/teaser.png"
+                 class="teaser-image"
+                 alt="Overview of ProgEmu."/>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">ProgEmu</span> generates counterfactual medical image with textual interpretation.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Counterfactual medical image generation enables clinicians to explore clinical hypotheses, 
+            such as predicting disease progression, facilitating their decision-making. 
+            While existing methods can generate visually plausible images from disease progression prompts, 
+            they produce silent predictions that lack interpretation to verify how the generation reflects 
+            the hypothesized progression---a critical gap for medical applications that require traceable reasoning. 
+          </p>
+          <p>
+            In this paper, we propose <b>I</b>nterpretable <b>C</b>ounterfactual <b>G</b>eneration (ICG), 
+            a novel task requiring the joint generation of counterfactual images that reflect the clinical 
+            hypothesis and interpretation texts that outline the visual changes induced by the hypothesis. 
+            To enable ICG, we present ICG-CXR, the first dataset pairing longitudinal medical images with 
+            hypothetical progression prompts and textual interpretations. We further introduce ProgEmu, 
+            an autoregressive model that unifies the generation of counterfactual images and textual interpretations. 
+          </p>
+          <p>
+            We demonstrate the superiority of <span class="dnerf">ProgEmu</span> in generating progression-aligned 
+            counterfactuals and interpretations, showing significant potential in enhancing clinical decision support and medical education. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <video id="publication-video" autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/icg-demo.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            There have been many outstanding works that inspire and relate to our research.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/2310.10765">BiomedJourney: Counterfactual Biomedical Image Generation by Instruction-Learning from Multimodal Patient Journeys</a>, by Yu Gu, Jianwei Yang, Naoto Usuyama, Chunyuan Li, Sheng Zhang, Matthew P. Lungren, Jianfeng Gao, and Hoifung Poon.
+          </p>
+          <p>
+            <a href="https://openaccess.thecvf.com/content/WACV2024/papers/Shentu_CXR-IRGen_An_Integrated_Vision_and_Language_Model_for_the_Generation_WACV_2024_paper.pdf">CXR-IRGen: An Integrated Vision and Language Model for the Generation of Clinically Accurate Chest X-Ray Image-Report Pairs</a>, by Junjie Shentu, and Noura Al Moubayed.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/2309.11745">PIE: Simulating Disease Progression via Progressive Image Editing</a>, by Kaizhao Liang, Xu Cao, Kuei-Da Liao, Tianren Gao, Wenqian Ye, Zhengyu Chen, Jianguo Cao, Tejas Nama, and Jimeng Sun.
+          </p>
+          <p>
+            <a href="https://www.nature.com/articles/s41551-024-01246-y">RoentGen: A Vision-Language Foundation Model for Chest X-Ray Generation</a> by Christian Bluethgen, Pierre Chambon, Jean-Benoit Delbrouck, Rogier van der Sluijs, Ma?gorzata Po?acin, Juan Manuel Zambrano Chaves, Tanishq Mathew Abraham, Shivanshu Purohit, Curtis P. Langlotz, and Akshay S. Chaudhari.
+          </p>
+          <p>...</p>
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{ma2025towards,
+  author    = {Ma, Chenglong and Ji, Yuanfeng and Ye, Jin and Zhang, Lu and Chen, Ying and Li, Tianbin and Li, Mingjie and He, Junjun and Shan, Hongming},
+  title     = {Towards Interpretable Counterfactual Generation via Multimodal Autoregression},
+  journal   = {arxiv},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
