@@ -142,7 +142,7 @@
             such as predicting disease progression, facilitating their decision-making. 
             While existing methods can generate visually plausible images from disease progression prompts, 
             they produce silent predictions that lack interpretation to verify how the generation reflects 
-            the hypothesized progression---a critical gap for medical applications that require traceable reasoning. 
+            the hypothesized progression — a critical gap for medical applications that require traceable reasoning. 
           </p>
           <p>
             In this paper, we propose <b>I</b>nterpretable <b>C</b>ounterfactual <b>G</b>eneration (ICG), 
@@ -188,12 +188,15 @@
             There have been many outstanding works that inspire and relate to our research.
           </p>
           <p>
-            In the field of medical counterfactual generation, <a href="https://www.nature.com/articles/s41551-024-01246-y">RoentGen</a> pioneers 
-            a domain-adapted latent diffusion model capable of generating high-quality chest X-rays (CXRs) from text description. 
-            <a href="https://arxiv.org/abs/2310.10765">BiomedJourney</a> and <a href="https://arxiv.org/abs/2309.11745">PIE</a> demonstrate 
-            impressive capabilities in flexibly editing medical images for counterfactual generation. Further, 
-            <a href="https://ieeexplore.ieee.org/document/10483744">CXR-IRGen</a> explores the integration of a diffusion model and 
-            a language model, moving beyond image editing to jointly generate CXRs and radiology reports.
+            In the field of medical counterfactual generation, early approaches like <a href="https://arxiv.org/abs/2102.09475">Latent Shift</a> 
+            enable chest X-ray (CXR) generation by perturbing latent representations to exaggerate/curtail prediction-driven features. 
+            More recently, <a href="https://www.nature.com/articles/s41551-024-01246-y">RoentGen</a> introduces a domain-adapted latent diffusion 
+            model to generate high-quality CXRs from text description — a paradigm shift that brings greater flexibility. 
+            <a href="https://arxiv.org/abs/2310.10765">BiomedJourney</a> and <a href="https://arxiv.org/abs/2309.11745">PIE</a> reframe counterfactual 
+            generation as an image editing problem and adapt diffusion models to precisely modify specific pathological attributes. 
+            <a href="https://arxiv.org/abs/2409.07012">EHRXDiff</a> predicts future CXRs by combining previous CXRs with subsequent medical events. 
+            Further, <a href="https://ieeexplore.ieee.org/document/10483744">CXR-IRGen</a> explores the integration of a diffusion model and 
+            a language model, moving beyond image editing to jointly generate CXRs and radiology reports. 
           </p>
           <p>
             From a broader perspective, there is a growing trend toward unifying multimodal generation and understanding within one single AI system, 
